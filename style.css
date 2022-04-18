@@ -17,6 +17,7 @@
 	--blurple: #5865F2;
 	--blurple-dark: #4f5bda;
 	--blurple-alt: #7289da;
+	--discord-gray: #36393e;
 }
 
 html,
@@ -29,8 +30,9 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	height: 100vh;
 	width: 100vw;
-	text-align: center;
+	text-align: left;
 	position: static;
+	background-color: var(--discord-gray)
 }
 
 .gradient {
@@ -48,6 +50,7 @@ body {
 	align-items: center;
 	height: 100%;
 	width: 100%;
+	text-align: center;
 }
 
 .gradient h1 {
@@ -56,6 +59,11 @@ body {
 
 .gradient .smaller {
   	font-size: 35%;
+}
+
+.main {
+	background-color: var(--discord-gray);
+	color: #fff
 }
 
 
@@ -80,9 +88,13 @@ body {
 }
 
 .invite:hover {
-	background-color: var(--blurple-dark);
-	-webkit-transform: scale(1.2);
-	transform: scale(1.2);
+	background: var(--blurple-dark);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.invite a {
+	text-decoration: none;
 }
 
 
