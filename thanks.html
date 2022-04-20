@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://kit.fontawesome.com/ee422b4c3c.js" crossorigin="anonymous"></script>
+	<title>Thanks for inviting — Ask!</title>
+</head>
+<body>
+	<div class="gradient fs">
+		<h1>
+			<p id="title">Hi!</p>
+			<p id="subtitle" class="smaller">I don't think you should be able to see me! Why not <a href="index.html">go home</a>?</p>
+			<div class="invite-wrapper" id="button" style="display: block;">
+				<div class="invite w3-animate-bottom smaller" onclick="location.href='invite.html'" id="idkwhattocall">
+					<a href="invite.html" style="color: white !important; margin-top: 0; vertical-align: top;" id="button-text"><i class="fa-brands fa-discord"></i>Add to Discord</a>
+				</div>
+			</div>
+		</h1>
+	</div>
+	<script>
+		const queryString = new URLSearchParams(window.location.search);
+		const error = queryString.get("error");
+		const code = queryString.get("code");
+		const perms = queryString.get("permissions")
+
+		if (!code || error) {
+			document.getElementById("title").innerText = "Ask has not been added :("
+			document.getElementById("subtitle").innerText = "This usually happens when you cancel the invitation process."
+			document.getElementById("button").style.display = "block"
+		} else if (!perms || perms != "2147764224") {
+			document.getElementById("title").innerText = "Thanks for inviting Ask!"
+			document.getElementById("subtitle").innerText = "However, Ask! does not have the required permissions. It is recommended to add Ask! again."
+			document.getElementById("button").style.display = "block"
+		} else {
+			document.getElementById("title").innerText = "Thanks for inviting Ask!"
+			document.getElementById("subtitle").innerText = "If you want to, you can also join the official Ask! Discord server."
+			document.getElementById("button-text").innerHTML = `<i class="fa-brands fa-discord">Join the Discord server`
+			document.getElementById("idkwhattocall").onclick = "location.href='discord'"
+			document.getElementById("button-text").href = "discord.html"
+			document.getElementsByClassName("invite")[0].style.backgroundColor = "#5AA364"
+			document.getElementById("button").style.display = "block"
+		}
+	</script>
+</body>
+</html>
