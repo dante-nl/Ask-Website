@@ -19,6 +19,7 @@
 	--blurple-dark: #4f5bda;
 	--blurple-alt: #7289da;
 	--discord-gray: #36393e;
+	--discord-not-quite-black: #23272A;
 }
 
 
@@ -173,6 +174,13 @@ img {
 	height: 125px;
 }
 
+blockquote {
+	border-left: 5px solid var(--discord-not-quite-black);
+	margin-left: 10px;
+	padding: 5px 10px;
+	/* TODO: Make the border show at the same level of indentation as normal text */
+}
+
 /* ––––––––––––––––––– */
 /* Buttons             */
 /* ––––––––––––––––––– */
@@ -189,19 +197,20 @@ img {
 	border-radius: 10px;
 	text-decoration: none;
 	color: var(--text-color) !important;
-
 	overflow: hidden;
 
-	-webkit-transition: -webkit-transform 0.2s;
-	transition: -webkit-transform 0.2s;
-	transition: transform 0.2s;
-	transition: transform 0.2s, -webkit-transform 0.2s;
+	-webkit-transform: translateZ(0);
+   transform: scale(1);
+   -webkit-transition: transform 200ms;
+   transition: transform 200ms;
+}
+
+.invite-main {
+	overflow: hidden;
 }
 
 .invite:hover, .invite:active {
-	background: var(--blurple-dark);
-	-webkit-transform: scale(1.1);
-	transform: scale(1.1);
+	transform:scale(1.1)
 }
 
 .invite a {
@@ -211,6 +220,13 @@ img {
 
 .mobile .invite {
 	width: 80%;
+}
+
+.shine {
+	-webkit-transition: -webkit-transform 0.1s;
+	transition: -webkit-transform 0.1s;
+	transition: transform 0.1s;
+	transition: transform 0.1s, -webkit-transform 0.1s;
 }
 
 /* ––––––––––––––––––– */
@@ -295,9 +311,8 @@ img {
 }
 
 
-.invite::after {
-	animation: shine 2s linear infinite,
-		delay-animation 2000ms linear infinite;
+.shine::after {
+	animation: shine 2s linear infinite, delay-animation 3s linear infinite;
 	content: '';
 	display: block;
 	width: 120px;
