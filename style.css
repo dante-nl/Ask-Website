@@ -20,6 +20,9 @@
 	--blurple-alt: #7289da;
 	--discord-gray: #36393e;
 	--discord-not-quite-black: #23272A;
+	--orange: #F06543;
+	--red: #F02D3A;
+	--green: #17B890;
 }
 
 
@@ -83,6 +86,21 @@ code {
 .mobile .main {
 	margin-left: 0;
 	margin-right: 0;
+}
+
+input[type=text] {
+	border: 2px solid var(--blurple);
+	border-radius: 8px;
+	background: none;
+	color: var(--blurple-alt);
+	margin: 3px;
+}
+
+button {
+	background: none;
+	border: none;
+	color: var(--green);
+	font-size: 150%;
 }
 
 /* ––– */
@@ -229,6 +247,85 @@ blockquote {
 	transition: transform 0.1s, -webkit-transform 0.1s;
 }
 
+/* ––––––––––––––––––– */
+/* Question preview    */
+/* ––––––––––––––––––– */
+.question-preview {
+	text-align: center;
+	color: var(--text-color);
+	margin-left: 150px;
+	margin-right: 150px;
+}
+
+.mobile .question-preview {
+	text-align: left;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.big {
+	font-size: 500%;
+}
+
+.question-grid {
+	display: grid;
+	grid-auto-rows: 200px;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, auto);
+}
+
+.mobile .question-grid {
+	grid-template-columns: repeat(1, 1fr);
+}
+
+/* .question-grid div {
+	width: 100%;
+} */
+
+/* .question-grid > *:nth-child(3n-1) {
+	justify-self: center;
+	text-align: center;
+} */
+
+/* .question-grid > *:nth-child(3n) {
+	justify-self: end;
+	text-align: right;
+} */
+
+/* .question-grid > *:nth-child(3n-1):nth-last-of-type(1) {
+	border-color: red;
+	grid-column: span 2;
+}
+
+.question-grid > *:nth-child(3n-2):nth-last-of-type(1) {
+	grid-column: span 3;
+} */
+
+.question-grid .item {
+	background-color: var(--discord-not-quite-black);
+	border-radius: 8px;
+	margin: 3px;
+	/* height: 100%; */
+}
+
+.mobile .question-grid .item {
+	margin-top: 10px;
+}
+
+.question {
+	background-color: var(--discord-not-quite-black);
+	border-radius: 8px;
+	margin: 3px;
+	height: 10%;
+}
+
+.warning {
+	color: var(--orange);
+}
+
+.error {
+	color: var(--red);
+}
 /* ––––––––––––––––––– */
 /* Spinner from tobiasahlin.com/spinkit/ */
 /* ––––––––––––––––––– */
