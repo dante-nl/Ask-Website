@@ -103,6 +103,20 @@ button {
 	font-size: 150%;
 }
 
+hr {
+	border: 2px solid var(--blurple);
+	border-radius: 10px;
+}
+
+a {
+	color: var(--blurple);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 /* ––– */
 
 .left img {
@@ -250,6 +264,35 @@ blockquote {
 /* ––––––––––––––––––– */
 /* Question preview    */
 /* ––––––––––––––––––– */
+.recent-questions {
+	display: grid;
+	grid-auto-rows: 200px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 100%;
+}
+
+.mobile .recent-questions {
+	grid-auto-rows: 100px;
+	grid-template-columns: repeat(1, 1fr);
+	grid-template-rows: repeat(1, 1fr);
+}
+
+.recent-questions .item {
+	background-color: var(--discord-not-quite-black);
+	border-radius: 8px;
+	margin: 3px;
+	/* display: inline-block; */
+	/* max-width: 200px; */
+	/* white-space: nowrap; */
+	/* overflow: hidden;
+	text-overflow: ellipsis; */
+	/* white-space: nowrap; */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-height: 250px;
+}
+
+
 .question-preview {
 	text-align: center;
 	color: var(--text-color);
@@ -277,29 +320,6 @@ blockquote {
 .mobile .question-grid {
 	grid-template-columns: repeat(1, 1fr);
 }
-
-/* .question-grid div {
-	width: 100%;
-} */
-
-/* .question-grid > *:nth-child(3n-1) {
-	justify-self: center;
-	text-align: center;
-} */
-
-/* .question-grid > *:nth-child(3n) {
-	justify-self: end;
-	text-align: right;
-} */
-
-/* .question-grid > *:nth-child(3n-1):nth-last-of-type(1) {
-	border-color: red;
-	grid-column: span 2;
-}
-
-.question-grid > *:nth-child(3n-2):nth-last-of-type(1) {
-	grid-column: span 3;
-} */
 
 .question-grid .item {
 	background-color: var(--discord-not-quite-black);
