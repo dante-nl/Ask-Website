@@ -43,6 +43,22 @@
 		</h1>
 	</div>
 	<div class="main">
+		<h1 style="text-align: center;">Recent questions</h1>
+		<div class="recent-questions">
+			<div class="item">
+				<h1 id="itemOne">No question!</h1>
+			</div>
+			<div class="item">
+				<h1 id="itemTwo">No question!</h1>
+			</div>
+			<div class="item">
+				<h1 id="itemThree">No question!</h1>
+			</div>
+			<div class="item">
+				<h1 id="itemFour">No question!</h1>
+			</div>
+		</div>
+		<hr>
 		<div class="left">
 			<img src="/Images/Ask! Demo Image 1.png" alt="An image of Discord with a question" width="550px" height="250px">
 			<h1>Ask it, answer it.</h1>
@@ -75,15 +91,78 @@
 				// Mobile device
 				console.log("It appears that you're on a mobile device! This means that you get the website optimised for those small devices!")
 				document.body.classList.add("mobile")
+				mobile = true
 			} else {
 				// Not mobile
 				console.log("It appears that you're not on a mobile device! (laptop, computer, etc.) This means that you get the normal website!")
 				document.body.classList.remove("mobile")
+				mobile = false
 			}
+
+			const request = JSON.parse(loadXMLDoc("https://ask.luckunstoppable7.com/data.json"))
+			iterationCountOne = 1
+			for (item in request["data"]) {
+				if (request["data"][item]["deleted"] == "true") {
+					delete request["data"][item]
+				}
+			}
+			var keys = Object.keys(request["data"])
+
+			var lastOne = keys[keys.length - 1]
+			var lastTwo = keys[keys.length - 2]
+			var lastThree = keys[keys.length - 3]
+			var lastFour = keys[keys.length - 4]
+			console.log(lastThree)
+			if (mobile == true) {
+				truncateSize = 15
+			} else {
+				truncateSize = 30
+			}
+			itemOneQuestionTruncated = truncateString(request["data"][lastOne]["question"], truncateSize)
+			itemTwoQuestionTruncated = truncateString(request["data"][lastTwo]["question"], truncateSize)
+			itemThreeQuestionTruncated = truncateString(request["data"][lastThree]["question"], truncateSize)
+			itemFourQuestionTruncated = truncateString(request["data"][lastFour]["question"], truncateSize)
+
+			document.getElementById("itemOne").innerHTML = `<a href="question.html?id=${lastOne}">${itemOneQuestionTruncated}</a>`
+			document.getElementById("itemTwo").innerHTML = `<a href="question.html?id=${lastTwo}">${itemTwoQuestionTruncated}</a>`
+			document.getElementById("itemThree").innerHTML = `<a href="question.html?id=${lastThree}">${itemThreeQuestionTruncated}</a>`
+			document.getElementById("itemFour").innerHTML = `<a href="question.html?id=${lastFour}">${itemFourQuestionTruncated}</a>`
+			console.log(lastTwo)
+			console.log(lastOne)
+		}
+
+		function loadXMLDoc(theURL) {
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+			}
+			else {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					// alert(xmlhttp.responseText);
+					console.log("External request: completed.")
+				}
+			}
+			xmlhttp.open("GET", theURL, false);
+			xmlhttp.send();
+			return xmlhttp.responseText
 		}
 
 		function newTab(url) {
 			window.open(url, "_blank").focus();
+		}
+
+
+		function truncateString(str, num) {
+			if (str.length <= num) {
+				return str
+			}
+			return str.slice(0, num) + '...'
+		}
+
+		function stringify(str) {
+			console.log(Object.prototype.toString.call(str));
 		}
 	</script>
 </body>
