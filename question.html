@@ -60,6 +60,7 @@
 			if (!id) {
 				id = document.getElementById("id").value
 			}
+			document.getElementById("id").value = id
 			if (id in dict["data"]) {
 				if ("deleted" in dict["data"][id]) {
 					if (dict["data"][id]["deleted"] == "true") {
