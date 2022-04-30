@@ -28,6 +28,7 @@
 			<h1 id="question">Question</h1>
 			<h3 id="question-date">Enter an ID to get started!</h3>
 		</div>
+		<hr class="m-hr">
 		<div class="question-grid" id="answers">
 		</div>
 	</div>
@@ -57,6 +58,7 @@
 		
 		function loadText(id) {
 			dict = JSON.parse(loadXMLDoc("https://ask.luckunstoppable7.com/data.json"))
+			// dict = JSON.parse(loadXMLDoc("https://cdn.dantenl.tk/Ask%21/data.json"))
 			if (!id) {
 				id = document.getElementById("id").value
 			}
@@ -97,14 +99,22 @@
 					total_questions++
 					answ = dict["data"][id]["answers"][key]["answer"]
 					if ("author" in dict["data"][id]["answers"][key]) {
-						document.getElementById("answers").innerHTML += `
-						<div class="item">
-							<h1>${answ}</h1>
-							<h3>By ${dict["data"][id]["answers"][key]["author"]}</h3>
-						</div>`
+						if (dict["data"][id]["answers"][key]["best_answer"] == "true") {
+							document.getElementById("answers").innerHTML += `
+							<div class="item best">
+								<h1>${answ}</h1>
+								<h3>Best answer by ${dict["data"][id]["answers"][key]["author"]}</h3>
+							</div>`
+						} else {
+							document.getElementById("answers").innerHTML += `
+							<div class="item">
+								<h1>${answ}</h1>
+								<h3>By ${dict["data"][id]["answers"][key]["author"]}</h3>
+							</div>`
+						}
 					} else {
 						document.getElementById("answers").innerHTML += `
-						<div class="item">
+						<div class="item best">
 							<span class="warning">
 								<i class="fa-solid fa-triangle-exclamation"></i> This is an older answer. Not everything is supported.
 							</span>
