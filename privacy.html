@@ -14,30 +14,37 @@
 	<meta name="theme-color" content="#ED47FF">
 	<link rel="stylesheet" href="style.css" />
 	<script src="https://kit.fontawesome.com/ee422b4c3c.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/atom-one-dark.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 	<title>Privacy policy — Ask!</title>
 </head>
 <body>
-		<div class="main">
-		<!-- Used markdowntohtml.com to convert this from markdown to HTML code. -->
+	<div class="main">
 		<h1 id="ask-privacy-policy">Ask! Privacy Policy</h1>
-		<p>Ask! is a Discord bot and it stores various bits of data. <strong>When you use the Ask! Discord bot, you
-				automatically agree to this.</strong></p>
-		<h2 id="data-we-store">Data we store</h2>
-		<p>Ask! saves information about you for moderation purpises and because the Ask! bot uses this data to allow for the
-			identifiers (IDs). This means you can ask, edit and answer questions with a simple five character string.</p>
+		<p>Ask! automatically stores data when you interact with the bot. Below is listed what data we collect, and what we use
+			it for. <strong>When you use the Ask! Discord bot, you automatically agree to this.</strong>
+			Ask! saves information about you for moderation purposes and because the Ask! bot uses this data to make it work in
+			the first place. All this data is publicly available, you can use the <a href="https://ask-bot.gq/question">Ask!
+				Question Viewer</a> or directly read the data dictionary in <a
+				href="https://ask.luckunstoppable7.com/data.json">the <code>data.json</code> file</a>.</p>
+		<h3 id="question-data">Question data</h3>
+		<p>This is what Ask! saves about a question.</p>
 		<ul>
 			<li>
 				<p>A question&#39;s Ask! ID</p>
 				<p> Ask! uses a system with IDs. Ask! generates an ID upon the creation of the questions. The ID consists of two
-					numbers (0-9) and three letter (A-z). An example of an ID would be <code>7Va1T</code>.</p>
+					numbers (0-9) and three letter (A-z). An example of an ID would be <code>21AaJ</code>. Automatically
+					generated IDs contain three letters and two numbers, in a random order.</p>
 			</li>
 			<li>
 				<p>The question itself</p>
-				<p> We store the question itself, so that this can be used by the Ask! bot and moderators.</p>
+				<p> We store the question itself, so that this can be used by the Ask! bot and moderators. The Ask! bot appends
+					any answers to the data.</p>
 			</li>
 			<li>
 				<p>The question history</p>
-				<p> Whenever a question gets edited, this the question that used to be the question is saved. </p>
+				<p> Whenever a question gets edited, the old question is saved. </p>
 				<p> For example, the original question would be:</p>
 				<blockquote>
 					<p>How do I open this jar?</p>
@@ -48,7 +55,7 @@
 				</blockquote>
 				<p> The original question is stored automatically by the Ask! bot.</p>
 				<p> If a question is not deleted, the question history is publicly available with the <code>/history</code>
-					command. (if there is a history) Moderators can always view a question&#39;s history.</p>
+					command. (if there is a history). Moderators can always view a question&#39;s history.</p>
 			</li>
 			<li>
 				<p>The author ID</p>
@@ -65,12 +72,79 @@
 					it gets deleted.</p>
 			</li>
 			<li>
+				<p>The author name and tag</p>
+				<p> Every Discord account, including bots, has a unique name and tag. This tag is used by the <a
+						href="https://ask-bot.gq/question">Ask! Question Viewer</a> to make it a lot more readable than, for
+					example:</p>
+				<blockquote>
+					<p>Asked by 969293937091149874</p>
+				</blockquote>
+			</li>
+			<li>
 				<p>Answer data</p>
-				<p> We store data of answers of the questions. This is the answer itself and the author ID.</p>
+				<p> We store data of answers of the questions. This is the answer itself and the author ID but also the message
+					ID (in DMs, if DMs are closed, this is <code>none</code>) and if the question is the best answer.</p>
 			</li>
 		</ul>
+		<p>All our data is stored in the JSON format. An example is included below.</p>
+		<pre>
+<code class="lang-json"><span class="hljs-string">"bPu07"</span>: {
+	<span class="hljs-string">"question"</span>: <span class="hljs-string">"Is true false?"</span>,
+	<span class="hljs-string">"author_id"</span>: <span class="hljs-string">"618082876730376202"</span>,
+	<span class="hljs-string">"message_id"</span>: <span class="hljs-string">"969933188690501642"</span>,
+	<span class="hljs-string">"author"</span>: <span class="hljs-string">"dante_nl#1234"</span>,
+	<span class="hljs-string">"answers"</span>: {
+		<span class="hljs-string">"Q73pu"</span>: {
+			<span class="hljs-string">"answer"</span>: <span class="hljs-string">"No, true is not false"</span>,
+			<span class="hljs-string">"author_id"</span>: <span class="hljs-number">806141455616704573</span>,
+			<span class="hljs-string">"author"</span>: <span class="hljs-string">"dante_nl 2#4034"</span>,
+			<span class="hljs-string">"message_id"</span>: <span class="hljs-number">969934106655866880</span>
+		},
+		<span class="hljs-string">"q36MB"</span>: {
+			<span class="hljs-string">"answer"</span>: <span class="hljs-string">"Yes."</span>,
+			<span class="hljs-string">"author_id"</span>: <span class="hljs-number">806141455616704573</span>,
+			<span class="hljs-string">"author"</span>: <span class="hljs-string">"dante_nl 2#4034"</span>,
+			<span class="hljs-string">"message_id"</span>: <span class="hljs-number">969934155599183892</span>,
+			<span class="hljs-string">"best_answer"</span>: <span class="hljs-string">"false"</span>
+		},
+		<span class="hljs-string">"y15ic"</span>: {
+			<span class="hljs-string">"answer"</span>: <span class="hljs-string">"No, I do not think that true is false becaue true is always true"</span>,
+			<span class="hljs-string">"author_id"</span>: <span class="hljs-number">806141455616704573</span>,
+			<span class="hljs-string">"author"</span>: <span class="hljs-string">"dante_nl 2#4034"</span>,
+			<span class="hljs-string">"message_id"</span>: <span class="hljs-number">969934564371886120</span>,
+			<span class="hljs-string">"best_answer"</span>: <span class="hljs-string">"true"</span>
+		}
+	}
+}
+</code>
+	</pre>
+		<h3 id="user-data">User data</h3>
+		<p>The things noted above are the things about questions. Ask! also stores the following user data. All of our user data
+			is not private information, or things that should be kept private. Sometimes we don&#39;t even have user data at
+			all.</p>
+		<ul>
+			<li>
+				<p>User ID</p>
+				<p> We store your ID, but only if you have executed a settings command, such as <code>/toggle-dms</code>.</p>
+			</li>
+			<li>
+				<p>User settings</p>
+				<p> We store your settings, but only if you have changed them from their default value.</p>
+			</li>
+			<li>
+				<p>Ban status</p>
+				<p> We store that you are banned. A reason is not included.</p>
+			</li>
+		</ul>
+		<p>An example of how it looks is included below.</p>
+		<pre>
+<code class="lang-json"><span class="hljs-string">"618082876730376202"</span>: {
+	<span class="hljs-string">"dms_enabled"</span>: <span class="hljs-string">"true"</span>,
+	<span class="hljs-string">"banned"</span>: <span class="hljs-string">"false"</span>
+}
+</code>
+		</pre>
 		<p><strong>Note:</strong> All of this data is kept upon deletion, and if a moderator knows the ID, the entire question
 			history can be viewed.</p>
-	</div>
 </body>
 </html>
