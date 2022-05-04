@@ -24,3 +24,20 @@ Ask! has some unique features, such as integration with our website. When a ques
 You can view an example [here](https://ask-bot.gq/question?id=example)
 
 <img src="https://ask-bot.gq/images/Ask%21%20Demo%20Image%203.png" width="500px" height="auto" style="border-radius: 10px">
+
+### Commands
+
+All commands can be found using `/help`, or just browsing the slash command menu! But, we'll list a few of the most important commands.
+Text between greater than (`>`) and smaller than (`<`) signs should be replaced with a value. For example, `<ID>` should be replaced by an Ask! ID, which consists of two numbers and three letters.
+
+`/answer <ID> <answer>`	    — Answer a `<question>` with `<ID>`.
+
+`/ask <question>`           — Ask a `<question>`
+
+`/edit <ID> <new question>`	— Edit question with `<ID>` to `<new question>`
+
+`/help`                     — Gives you information, you can invite the bot via this command, or learn more about commands.
+
+`/ping`                     — Gives you the current ping
+
+`/toggle-dms`               — Allows you to enable or disable whether the bot should send you DMs or not.
