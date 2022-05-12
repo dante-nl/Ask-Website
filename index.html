@@ -26,20 +26,6 @@
 	<script src="https://kit.fontawesome.com/ee422b4c3c.js" crossorigin="anonymous"></script>
 </head>
 
-
-	<!-- <h1><span class="ask">Ask!</span></h1>
-	<h1>Ask your questions everywere on Discord!</h1>
-	<p>Ever wondered how far the sun is from earth? Or the oldest account on Discord? You could Google it, or you could /ask it on Discord! Here are a few reasons to invite Ask!</p>
-	<h2 style="text-align: left;"><i class="fas fa-check-circle check"></i>Easy to use</h2>
-	<h2 style="text-align: left;"><i class="fas fa-check-circle check"></i>For all ages, it blocks bad words</h2> -->
-
-	<!-- <div class="gradient">
-		<div style="display:flex;justify-content:center;align-items:center;">
-			<h1 class="animation">Ask!</h1>
-			<!-- <p><a href="https://discord.com" target="_blank" rel="noopener noreferrer">Add to Discord</a></p> -->
-			<!-- <h2 style="position: relative;">Sub-text</h2>
-		</div>
-	</div> -->
 <body onload="load()">
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PC4F7PT" height="0" width="0"
@@ -171,9 +157,25 @@
 			window.open(url, "_blank").focus();
 		}
 
+		// function sleep(milliseconds) {
+		// 	const date = Date.now();
+		// 	let currentDate = null;
+		// 	do {
+		// 		currentDate = Date.now();
+		// 	} while (currentDate - date < milliseconds);
+		// }
+
+		function sleep(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		}
+
+
 		async function invite() {
-			document.getElementById("invite_button").classList.add("vibrate")
-			await setTimeout((url) => { window.open("https://discord.com/oauth2/authorize?client_id=969293937091149874&scope=bot%20applications.commands&permissions=2147764224&response_type=code&redirect_uri=https%3A%2F%2Fask-bot.gq%2Fthanks", "_blank").focus(); document.getElementById("invite_button").classList.remove("vibrate") }, 3000);
+			document.getElementById("invite_button").classList.add("vibrate");
+			await sleep(3500);
+			window.location.href = ("https://discord.com/oauth2/authorize?client_id=969293937091149874&scope=bot%20applications.commands&permissions=2147764224&response_type=code&redirect_uri=https%3A%2F%2Fask-bot.gq%2Fthanks")
+			document.getElementById("invite_button").classList.remove("vibrate");
+			// await setTimeout((url) => { window.open("https://discord.com/oauth2/authorize?client_id=969293937091149874&scope=bot%20applications.commands&permissions=2147764224&response_type=code&redirect_uri=https%3A%2F%2Fask-bot.gq%2Fthanks", "_blank").focus(); document.getElementById("invite_button").classList.remove("vibrate") }, 3000);
 		}
 
 
