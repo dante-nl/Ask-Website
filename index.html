@@ -50,9 +50,9 @@
 			<p class="fold-open">Ask!</p>
 			<p class="smaller scale-up-center">Ask and answer, straight from Discord</p>
 			<div class="invite-wrapper">
-				<div class="invite w3-animate-bottom" onclick="newTab('invite.html')">
+				<div id="invite_button" class="invite w3-animate-bottom" onclick="invite()">
 						<!-- <a href="invite.html" target="_blank" rel="noopener noreferrer" class="smaller invite-main shine" style="color: white !important"><i class="fa-brands fa-discord"></i>Add to Discord</a> -->
-						<a href="invite.html" target="_blank" rel="noopener noreferrer" class="smaller invite-main shine" style="color: white !important">
+						<a class="smaller invite-main shine" style="color: white !important">
 							<i class="fa-brands fa-discord"></i>
 							Add to Discord
 						</a>
@@ -167,8 +167,13 @@
 			return xmlhttp.responseText
 		}
 
-		function newTab(url) {
+		function openURL(url) {
 			window.open(url, "_blank").focus();
+		}
+
+		async function invite() {
+			document.getElementById("invite_button").classList.add("vibrate")
+			await setTimeout((url) => { window.open("https://discord.com/oauth2/authorize?client_id=969293937091149874&scope=bot%20applications.commands&permissions=2147764224&response_type=code&redirect_uri=https%3A%2F%2Fask-bot.gq%2Fthanks", "_blank").focus(); document.getElementById("invite_button").classList.remove("vibrate") }, 3000);
 		}
 
 
