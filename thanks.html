@@ -37,7 +37,7 @@
 			<p id="subtitle" class="smaller">I don't think you should be able to see me! Why not <a href="index.html">go home</a>?</p>
 			<div class="invite-wrapper" id="button" style="display: block;">
 				<div class="invite w3-animate-bottom smaller" onclick="location.href='invite.html'" id="idkwhattocall">
-					<a href="invite.html" style="color: white !important; margin-top: 0; vertical-align: top;" id="button-text"><i class="fa-brands fa-discord"></i>Add to Discord</a>
+					<a href="invite.html" style="color: #ffffff !important; margin-top: 0; vertical-align: top;" id="button-text"><i class="fa-brands fa-discord"></i>Add to Discord</a>
 				</div>
 			</div>
 		</h1>
@@ -49,12 +49,10 @@
 		const perms = queryString.get("permissions")
 
 		if (!code || error) {
-			document.getElementById("title").innerText = "Ask has not been added :("
-			document.getElementById("subtitle").innerText = "This usually happens when you cancel the invitation process."
-			document.getElementById("button").style.display = "block"
+			window.location.href = ("index.html")
 		} else if (!perms || perms != "2147764224") {
-			document.getElementById("title").innerText = "Thanks for inviting Ask!"
-			document.getElementById("subtitle").innerText = "However, Ask! does not have the required permissions. It is recommended to add Ask! again."
+			document.getElementById("title").innerText = "Ask! does not have the required permissions"
+			document.getElementById("subtitle").innerText = "Ask! might not work properly because not every required permission was granted."
 			document.getElementById("button").style.display = "block"
 		} else {
 			document.getElementById("title").innerText = "Thanks for inviting Ask!"
