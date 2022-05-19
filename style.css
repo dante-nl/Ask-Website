@@ -317,9 +317,10 @@ blockquote {
 	display: flex;
 	flex-wrap: wrap;
 	box-sizing: border-box;
-	grid-auto-rows: 200px;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, auto);
+	align-content: stretch;
+	/* grid-auto-rows: 200px; */
+	/* grid-template-columns: repeat(3, auto);
+	grid-template-rows: repeat(2, auto); */
 }
 
 .m-hr {
@@ -338,7 +339,7 @@ blockquote {
 	background-color: var(--discord-not-quite-black);
 	border-radius: 8px;
 	margin: 3px;
-	flex-grow: 1;
+	flex-grow: 2;
 	/* height: 100%; */
 }
 
