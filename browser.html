@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-PC4F7PT');</script>
+	<!-- End Google Tag Manager -->
+	<title>Question Browser — Ask!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Ask! Question Browser" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://ask-bot.gq/Images/AskLogo200x200.png" />
+	<meta property="og:description"
+		content="View all asked questions here!" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/Ask! Favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/Ask! Favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/Ask! Favicon/favicon-16x16.png">
+	<link rel="manifest" href="/Ask! Favicon/site.webmanifest">
+	<meta name="theme-color" content="#ED47FF">
+	<link rel="stylesheet" href="style.css" />
+	<meta charset="utf-8" />
+	<script src="https://kit.fontawesome.com/ee422b4c3c.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="load()">
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PC4F7PT" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div class="question-preview">
+		<h1 class="big gradient-text">Ask! Question Browser</h1>
+		<h2>View every asked question! If you're interested in Supercharging a question, click <a href="https://ask-bot.gq/supercharges/" target="_blank" rel="noopener noreferrer">here</a>!</h2>
+		
+		<div class="question-grid" id="answers">
+		</div>
+		<hr>
+		<h1>Supercharged questions</h1>
+		<div class="question-grid" id="supercharged">
+			<div class="item supercharged">
+				<h1 id="itemOne">No question to be loaded!</h1>
+			</div>
+			<div class="item supercharged">
+				<h1 id="itemTwo">No question to be loaded!</h1>
+			</div>
+			<div class="item supercharged">
+				<h1 id="itemThree">No question to be loaded!</h1>
+			</div>
+			<div class="item supercharged">
+				<h1 id="itemFour">No question to be loaded!</h1>
+			</div>
+			<div class="item supercharged">
+				<h1 id="itemFive">No question to be loaded!</h1>
+			</div>
+			<div class="item supercharged">
+				<h1 id="itemSix">No question to be loaded!</h1>
+			</div>
+			<div class="item supercharged">
+				<h1 id="itemSeven">No question to be loaded!</h1>
+			</div>
+			<div class="item supercharged">
+				<h1 id="itemEight">No question to be loaded!</h1>
+			</div>
+		</div>
+		<hr>
+		<h1>All questions</h1>
+		<div class="question-grid" id="questions">
+			<!-- Questions -->
+		</div>
+	</div>
+
+	<script>
+		function loadXMLDoc(theURL) {
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+			}
+			else {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					// alert(xmlhttp.responseText);
+					console.log("External request: completed.")
+				}
+			}
+			xmlhttp.open("GET", theURL, false);
+			xmlhttp.send();
+			return xmlhttp.responseText
+		}
+
+		function getQuestion(q_id) {
+			return dict["data"][q_id]["question"]
+		}
+
+		function loadCharged() {
+			// const request = JSON.parse(loadXMLDoc("https://ask.luckunstoppable7.com/data.json"))
+			const request = JSON.parse(loadXMLDoc("https://cdn.dantenl.tk/Ask%21/data.json"))
+			iterationCountOne = 1
+			for (item in request["data"]) {
+				if (request["data"][item]["deleted"] == "true") {
+					delete request["data"][item]
+				} else if (request["data"][item]["supercharged"] != "true") {
+					delete request["data"][item]
+				}
+			}
+			var keys = Object.keys(request["data"])
+
+			var lastOne = keys[keys.length - 1]
+			var lastTwo = keys[keys.length - 2]
+			var lastThree = keys[keys.length - 3]
+			var lastFour = keys[keys.length - 4]
+			var lastFive = keys[keys.length - 5]
+			var lastSix = keys[keys.length - 6]
+			var lastSeven = keys[keys.length - 7]
+			var lastEight = keys[keys.length - 8]
+
+			if (mobile == true) {
+				truncateSize = 15
+				document.getElementsByClassName("supercharged")[4].style.display = "none"
+				document.getElementsByClassName("supercharged")[5].style.display = "none"
+				document.getElementsByClassName("supercharged")[6].style.display = "none"
+				document.getElementsByClassName("supercharged")[7].style.display = "none"
+			} else {
+				truncateSize = 30
+			}
+			try {
+				itemOneQuestionTruncated = truncateString(request["data"][lastOne]["question"], truncateSize)
+				itemTwoQuestionTruncated = truncateString(request["data"][lastTwo]["question"], truncateSize)
+				itemThreeQuestionTruncated = truncateString(request["data"][lastThree]["question"], truncateSize)
+				itemFourQuestionTruncated = truncateString(request["data"][lastFour]["question"], truncateSize)
+				itemFiveQuestionTruncated = truncateString(request["data"][lastFive]["question"], truncateSize)
+				itemSixQuestionTruncated = truncateString(request["data"][lastSix]["question"], truncateSize)
+				itemSevenQuestionTruncated = truncateString(request["data"][lastSeven]["question"], truncateSize)
+				itemEightQuestionTruncated = truncateString(request["data"][lastEight]["question"], truncateSize)
+			}
+			catch {}
+
+			try {
+				document.getElementById("itemOne").innerHTML = `<a href="question.html?id=${lastOne}">${itemOneQuestionTruncated}</a>`
+				document.getElementById("itemTwo").innerHTML = `<a href="question.html?id=${lastTwo}">${itemTwoQuestionTruncated}</a>`
+				document.getElementById("itemThree").innerHTML = `<a href="question.html?id=${lastThree}">${itemThreeQuestionTruncated}</a>`
+				document.getElementById("itemFour").innerHTML = `<a href="question.html?id=${lastFour}">${itemFourQuestionTruncated}</a>`
+				document.getElementById("itemFive").innerHTML = `<a href="question.html?id=${lastFive}">${itemFiveQuestionTruncated}</a>`
+				document.getElementById("itemSix").innerHTML = `<a href="question.html?id=${lastSix}">${itemSixQuestionTruncated}</a>`
+				document.getElementById("itemSeven").innerHTML = `<a href="question.html?id=${lastSeven}">${itemSevenQuestionTruncated}</a>`
+				document.getElementById("itemEight").innerHTML = `<a href="question.html?id=${lastEight}">${itemEightQuestionTruncated}</a>`
+			}
+			catch {}
+
+		}
+
+		function loadQuestions() {
+			// const request = JSON.parse(loadXMLDoc("https://ask.luckunstoppable7.com/data.json"))
+			const request = JSON.parse(loadXMLDoc("https://cdn.dantenl.tk/Ask%21/data.json"))
+			itemCount = 1
+			keys = Object.keys(request["data"])
+			for (item in request["data"]) {
+				keyToSearch = keys[keys.length -itemCount]
+				try { 
+					if (request["data"][keyToSearch]["deleted"] != "true") {
+						if (request["data"][keyToSearch]["supercharged"] == "true") {
+							document.getElementById("questions").innerHTML += `
+								<div class="item supercharged">
+									<h1><a href="question.html?id=${keyToSearch}">${request["data"][keyToSearch]["question"]}</a></h1>
+								</div>`
+						}
+						else {
+							document.getElementById("questions").innerHTML += `
+								<div class="item">
+									<h1><a href="question.html?id=${keyToSearch}">${request["data"][keyToSearch]["question"]}</a></h1>
+								</div>`
+						}
+					}
+					itemCount++
+				}
+				catch {}
+			}
+		}
+		
+		function convertDate(snowflake) {
+			let id = parseInt(snowflake);
+
+			let binary = id.toString(2);
+			binary = binary.padStart(64, "0");
+
+			let excerpt = binary.substring(0, 42);
+
+			let decimal = parseInt(excerpt, 2);
+
+			let unix = parseInt(decimal) + 1420070400000;
+
+			const date = new Date(unix);
+
+			const options = {
+				weekday: "long",
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+				hour: "2-digit",
+				minute: "2-digit"
+
+			};
+			const dataFormat = date.toLocaleString("en-US", options);
+
+			return dataFormat
+		}
+
+		function load() {
+			if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				// Mobile device
+				console.log("It appears that you're on a mobile device! This means that you get the website optimised for those small devices!")
+				document.body.classList.add("mobile©")
+				mobile = true
+			} else {
+				// Not mobile
+				console.log("It appears that you're not on a mobile device! (laptop, computer, etc.) This means that you get the normal website!")
+				document.body.classList.remove("mobile")
+				mobile = false
+			}
+			loadCharged()
+			loadQuestions()
+			const queryString = new URLSearchParams(window.location.search);
+			const url_id = queryString.get("id");
+			if (url_id) {
+				loadText(url_id)
+			}
+		}
+
+		function truncateString(str, num) {
+				if (str.length <= num) {
+					return str
+				}
+				return str.slice(0, num) + '...'
+			}
+
+		function stringify(str) {
+			console.log(Object.prototype.toString.call(str));
+		}
+
+	</script>
+</body>
+
+</html>
