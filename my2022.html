@@ -1,0 +1,188 @@
+<head>
+	<title>Ask!</title>
+	<!-- Google Tag Manager -->
+	<script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-PC4F7PT');</script>
+	<!-- End Google Tag Manager -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Ask!" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://ask.dantenl.tk/i/AskLogo200x200.png" />
+	<meta property="og:description"
+		content="Ask! is a Discord bot that allows you to ask questions from any server (or DMs) and can be answered via the Discord server!" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/Ask! Favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/Ask! Favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/Ask! Favicon/favicon-16x16.png">
+	<link rel="manifest" href="/Ask! Favicon/site.webmanifest">
+	<meta name="theme-color" content="#ED47FF">
+	<link rel="stylesheet" href="style.css" />
+	<meta charset="utf-8" />
+	<script src="https://kit.fontawesome.com/ee422b4c3c.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="load()">
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PC4F7PT" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div class="main">
+		<h1 style="font-size: 350%;">Your 2022 on Ask!</h1>
+		<div class="invite" onclick="window.location.href = 'https://easyauth.quick-stats.info/ask2022.php'">
+			<div class="invite-main">
+				<h2>
+				<a class="smaller invite-main" style="color: white !important">
+					<i class="fa-brands fa-discord"></i>
+					<span id="log-in">Log in with Discord</span>
+				</a>
+				</h2>
+			</div>
+		</div>
+		<div id="data">
+			<h3>You must log in to view your 2022. You can use the <code>/my2022</code> command or log in with the button above</h3>
+		</div>
+	</div>
+
+	<script>
+		function loadXMLDoc(theURL) {
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+			}
+			else {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					// alert(xmlhttp.responseText);
+					console.log("External request: completed.")
+				}
+			}
+			xmlhttp.open("GET", theURL, false);
+			xmlhttp.send();
+			return xmlhttp.responseText
+		}
+
+		function convertDate(snowflake) {
+			let id = parseInt(snowflake);
+
+			let binary = id.toString(2);
+			binary = binary.padStart(64, "0");
+
+			let excerpt = binary.substring(0, 42);
+
+			let decimal = parseInt(excerpt, 2);
+
+			let unix = parseInt(decimal) + 1420070400000;
+
+			const date = new Date(unix);
+
+			const options = {
+				weekday: "long",
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+				hour: "2-digit",
+				minute: "2-digit"
+
+			};
+			const dataFormat = date.toLocaleString("en-US", options);
+
+			return date
+		}
+
+		function load() {
+			if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				// Mobile device
+				console.log("It appears that you're on a mobile device! This means that you get the website optimised for those small devices!")
+				document.body.classList.add("mobile")
+			} else {
+				// Not mobile
+				console.log("It appears that you're not on a mobile device! (laptop, computer, etc.) This means that you get the normal website!")
+				document.body.classList.remove("mobile")
+			}
+
+			const queryString = new URLSearchParams(window.location.search);
+			const url_id = queryString.get("id");
+			if (url_id) {
+				document.getElementById("log-in").innerHTML = `<div class="spinner">
+																	<div class="cube1"></div>
+																	<div class="cube2"></div>
+																</div>`
+				window.history.pushState("test", "Your 2022 on Ask!", "my2022.html");
+				loadStats(url_id)
+			}
+		}
+	
+		function loadStats(id) {
+			dict = JSON.parse(loadXMLDoc("https://ask.luckunstoppable7.com/data.json"))
+			results = false
+			user_id = null
+			username = null
+			total_questions = 0
+			total_answers = 0
+			for (question in dict["data"]) {
+				if (dict["data"][question]["author_id"].toLowerCase() == id.toLowerCase() || dict["data"][question]["author"].toLowerCase() == id.toLowerCase()) {
+					user_id = dict["data"][question]["author_id"]
+					username = dict["data"][question]["author"]
+					results = true
+					// break
+				}
+				else {
+					if (dict["data"][question]["answers"]) {
+						for (answer in dict["data"][question]["answers"]) {
+							if (dict["data"][question]["answers"][answer]["author"].toLowerCase() == id.toLowerCase() || dict["data"][question]["answers"][answer]["author_id"] == id) {
+								user_id = dict["data"][question]["answers"][answer]["author_id"]
+								username = dict["data"][question]["answers"][answer]["author"]
+								results = true
+								// break
+							}
+						}
+					}
+				}
+			}
+
+			personal_questions = 0
+			personal_answers = 0
+			for (question in dict["data"]) {
+				total_questions++
+				if (dict["data"][question]["author_id"] == id.toString()) {
+					if (dict["data"][question]["deleted"] != "true") {
+						message_id = dict["data"][question]["message_id"]
+						date = convertDate(message_id).getFullYear()
+						console.log(date)
+						if (date == 2022) {
+							personal_questions++
+						}
+						
+					}
+				} else {
+					if(dict["data"][question]["answers"]) {
+						for (answer in dict["data"][question]["answers"]) {
+							total_answers++
+							if(dict["data"][question]["answers"][answer]["author_id"] == id.toString()) {
+								if (dict["data"][question]["answers"][answer]["message_id"] != "none") {
+									message_id = dict["data"][question]["answers"][answer]["message_id"]
+									date = convertDate(message_id).getFullYear()
+									if (date == 2022) {
+										personal_answers++
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			document.getElementById("log-in").innerText = `Logged in as ${username}`
+			document.getElementById("data").innerHTML = "<hr>"
+			document.getElementById("data").innerHTML += `<h2>You have asked ${personal_questions} questions in <span class='gradient-text'>2022</span>!`
+			document.getElementById("data").innerHTML += `<h2>A total of ${total_questions} questions have been asked in <span class='gradient-text'>2022</span>!`
+			document.getElementById("data").innerHTML += `<h2>You have answered ${personal_answers} questions in <span class='gradient-text'>2022</span>!`
+			document.getElementById("data").innerHTML += `<h2>A total of ${total_answers} answers have answered those questions in <span class='gradient-text'>2022</span>!`
+		}
+	</script>
+</body>
