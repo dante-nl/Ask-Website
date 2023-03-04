@@ -16,7 +16,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="og:title" content="Ask! User Viewer" />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="https://ask-bot.gq/Images/AskLogo200x200.png" />
+	<meta property="og:image" content="https://ask.dantenl.com/Images/AskLogo200x200.png" />
 	<meta property="og:description"
 		content="You can preview this user and their questions by clicking on this link!" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/Ask! Favicon/apple-touch-icon.png">
@@ -36,7 +36,7 @@
 	<!-- End Google Tag Manager (noscript) -->
 	<div class="question-preview">
 		<h1 class="big gradient-text">Ask! User Viewer</h1>
-		<h2>Here you can view a user and their data by entering a username <b>and tag</b> or a <a href="https://ask-bot.gq/id" target="_blank" rel="noopener noreferrer">user ID</a></h2>
+		<h2>Here you can view a user and their data by entering a username <b>and tag</b> or a <a href="https://ask.dantenl.com/id" target="_blank" rel="noopener noreferrer">user ID</a></h2>
 		<form action="javascript:loadText()">
 			<input type="text" id="id" placeholder="Ask!#4583">
 			<button>
@@ -151,7 +151,7 @@
 						date = convertDate(message_id)
 						document.getElementById("answers").innerHTML += `
 							<div class="item">
-								<h1><a href="https://ask-bot.gq/question?id=${question}" target="_blank" rel="noopener noreferrer">${dict["data"][question]["question"]}</a></h1>
+								<h1><a href="https://ask.dantenl.com/question?id=${question}" target="_blank" rel="noopener noreferrer">${dict["data"][question]["question"]}</a></h1>
 								<h3>Asked on ${date}</h3>
 							</div>`
 					}
