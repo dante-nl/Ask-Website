@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<!-- Google Tag Manager -->
 	<script>(function (w, d, s, l, i) {
@@ -12,277 +11,154 @@
 					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
 		})(window, document, 'script', 'dataLayer', 'GTM-PC4F7PT');</script>
 	<!-- End Google Tag Manager -->
-	<title>User Viewer — Ask!</title>
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="og:title" content="Ask! User Viewer" />
+	<meta property="og:title" content="Privacy policy — Ask!" />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="https://ask.dantenl.com/Images/AskLogo200x200.png" />
-	<meta property="og:description"
-		content="You can preview this user and their questions by clicking on this link!" />
+	<meta property="og:image" content="Images/AskLogo200x200.png" />
+	<meta property="og:description" content="Learn what data Ask! stores. Using the Ask! bot means you automatically agree to this." />
 	<link rel="apple-touch-icon" sizes="180x180" href="/Ask! Favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/Ask! Favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/Ask! Favicon/favicon-16x16.png">
 	<link rel="manifest" href="/Ask! Favicon/site.webmanifest">
 	<meta name="theme-color" content="#ED47FF">
 	<link rel="stylesheet" href="style.css" />
-	<meta charset="utf-8" />
 	<script src="https://kit.fontawesome.com/ee422b4c3c.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/atom-one-dark.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<title>Privacy policy — Ask!</title>
 </head>
-
-<body onload="load()">
+<body>
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PC4F7PT" height="0" width="0"
 			style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
-	<div class="question-preview">
-		<h1 class="big gradient-text">Ask! User Viewer</h1>
-		<h2>Here you can view a user and their data by entering a username <b>and tag</b> or a <a href="https://ask.dantenl.com/id" target="_blank" rel="noopener noreferrer">user ID</a></h2>
-		<form action="javascript:loadText()">
-			<input type="text" id="id" placeholder="Ask!#4583">
-			<button>
-				<i class="fa-solid fa-circle-arrow-right"></i>
-			</button>
-			<div class="invite-wrapper">
-				<div class="invite" onclick="window.location.href = 'https://easyauth.quick-stats.info/ask.php'">
-					<div class="invite-main">
-						<h2>
-						<a class="smaller invite-main" style="color: white !important">
-							<i class="fa-brands fa-discord"></i>
-							Log in with Discord
-						</a>
-						</h2>
-					</div>
-				</div>
-			</div>
-		</form>
-		<div class="question">
-			<div id="warning" class="warning" style="display: none;">This will show up when there is something you need
-				to know about.</div>
-			<h1 id="question">User</h1>
-			<h3 id="question-date">Enter an ID or name and tag to get started!</h3>
-		</div>
-		<hr class="m-hr">
-		<div class="question-grid" id="answers">
-		</div>
-	</div>
-
-	<script>
-		function loadXMLDoc(theURL) {
-			if (window.XMLHttpRequest) {
-				xmlhttp = new XMLHttpRequest();
-			}
-			else {
-				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-			xmlhttp.onreadystatechange = function () {
-				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-					// alert(xmlhttp.responseText);
-					console.log("External request: completed.")
-				}
-			}
-			xmlhttp.open("GET", theURL, false);
-			xmlhttp.send();
-			return xmlhttp.responseText
+	<div class="main">
+		<h1 id="ask-privacy-policy">Ask! Privacy Policy</h1>
+		<p>Ask! automatically stores data when you interact with the bot. Below is listed what data we collect, and what we use
+			it for. <strong>When you use the Ask! Discord bot, you automatically agree to this.</strong>
+			Ask! saves information about you for moderation purposes and because the Ask! bot uses this data to make it work in
+			the first place. All this data is publicly available, you can use the <a href="https://ask.dantenl.com/question">Ask!
+				Question Viewer</a> or directly read the data dictionary in <a
+				href="https://ask.luckunstoppable7.com/data.json">the <code>data.json</code> file</a>.</p>
+		<h3 id="question-data">Question data</h3>
+		<p>This is what Ask! saves about a question.</p>
+		<ul>
+			<li>
+				<p>A question&#39;s Ask! ID</p>
+				<p> Ask! uses a system with IDs. Ask! generates an ID upon the creation of the questions. The ID consists of two
+					numbers (0-9) and three letter (A-z). An example of an ID would be <code>21AaJ</code>. Automatically
+					generated IDs contain three letters and two numbers, in a random order.</p>
+			</li>
+			<li>
+				<p>The question itself</p>
+				<p> We store the question itself, so that this can be used by the Ask! bot and moderators. The Ask! bot appends
+					any answers to the data.</p>
+			</li>
+			<li>
+				<p>The question history</p>
+				<p> Whenever a question gets edited, the old question is saved. </p>
+				<p> For example, the original question would be:</p>
+				<blockquote>
+					<p>How do I open this jar?</p>
+				</blockquote>
+				<p> And the author edits the question so it reads the following:</p>
+				<blockquote>
+					<p>How do I open this .jar file?</p>
+				</blockquote>
+				<p> The original question is stored automatically by the Ask! bot.</p>
+				<p> If a question is not deleted, the question history is publicly available with the <code>/history</code>
+					command. (if there is a history). Moderators can always view a question&#39;s history.</p>
+			</li>
+			<li>
+				<p>The author ID</p>
+				<p> Every Discord account, including bots, has a unique ID. This ID can be used for moderation purposes, such as
+					banning people from using the Ask! Discord bot.</p>
+				<p> We store data about of question, which includes the question itself, its answers, who asked the Discord
+					profile ID of the person who asked it (author ID), and the ID of the message. If the question is deleted,
+					this also includes data about who deleted the question (a moderator of the author) and if the question is
+					deleted in the first place.</p>
+			</li>
+			<li>
+				<p>The message ID</p>
+				<p> This is the message ID of the message sent in the Ask! Discord server, this is used to edit the message when
+					it gets deleted.</p>
+			</li>
+			<li>
+				<p>The author name and tag</p>
+				<p> Every Discord account, including bots, has a unique name and tag. This tag is used by the <a
+						href="https://ask.dantenl.com/question">Ask! Question Viewer</a> to make it a lot more readable than, for
+					example:</p>
+				<blockquote>
+					<p>Asked by 969293937091149874</p>
+				</blockquote>
+			</li>
+			<li>
+				<p>Answer data</p>
+				<p> We store data of answers of the questions. This is the answer itself and the author ID but also the message
+					ID (in DMs, if DMs are closed, this is <code>none</code>) and if the question is the best answer.</p>
+			</li>
+		</ul>
+		<p>All our data is stored in the JSON format. An example is included below.</p>
+		<pre>
+<code class="lang-json"><span class="hljs-string">"bPu07"</span>: {
+	<span class="hljs-string">"question"</span>: <span class="hljs-string">"Is true false?"</span>,
+	<span class="hljs-string">"author_id"</span>: <span class="hljs-string">"618082876730376202"</span>,
+	<span class="hljs-string">"message_id"</span>: <span class="hljs-string">"969933188690501642"</span>,
+	<span class="hljs-string">"author"</span>: <span class="hljs-string">"dante_nl#1234"</span>,
+	<span class="hljs-string">"answers"</span>: {
+		<span class="hljs-string">"Q73pu"</span>: {
+			<span class="hljs-string">"answer"</span>: <span class="hljs-string">"No, true is not false"</span>,
+			<span class="hljs-string">"author_id"</span>: <span class="hljs-number">806141455616704573</span>,
+			<span class="hljs-string">"author"</span>: <span class="hljs-string">"dante_nl 2#4034"</span>,
+			<span class="hljs-string">"message_id"</span>: <span class="hljs-number">969934106655866880</span>
+		},
+		<span class="hljs-string">"q36MB"</span>: {
+			<span class="hljs-string">"answer"</span>: <span class="hljs-string">"Yes."</span>,
+			<span class="hljs-string">"author_id"</span>: <span class="hljs-number">806141455616704573</span>,
+			<span class="hljs-string">"author"</span>: <span class="hljs-string">"dante_nl 2#4034"</span>,
+			<span class="hljs-string">"message_id"</span>: <span class="hljs-number">969934155599183892</span>,
+			<span class="hljs-string">"best_answer"</span>: <span class="hljs-string">"false"</span>
+		},
+		<span class="hljs-string">"y15ic"</span>: {
+			<span class="hljs-string">"answer"</span>: <span class="hljs-string">"No, I do not think that true is false becaue true is always true"</span>,
+			<span class="hljs-string">"author_id"</span>: <span class="hljs-number">806141455616704573</span>,
+			<span class="hljs-string">"author"</span>: <span class="hljs-string">"dante_nl 2#4034"</span>,
+			<span class="hljs-string">"message_id"</span>: <span class="hljs-number">969934564371886120</span>,
+			<span class="hljs-string">"best_answer"</span>: <span class="hljs-string">"true"</span>
 		}
-
-		function getQuestion(q_id) {
-			return dict["data"][q_id]["question"]
-		}
-
-		function loadText(id) {
-			dict = JSON.parse(loadXMLDoc("https://ask.luckunstoppable7.com/data.json"))
-			// dict = JSON.parse(loadXMLDoc("https://cdn.dantenl.tk/Ask%21/data.json"))
-			if (!id) {
-				id = document.getElementById("id").value
-			}
-			document.getElementById("answers").innerHTML = ""
-			// document.getElementById("id").value = user
-			results = false
-			user_id = null
-			username = null
-			for (question in dict["data"]) {
-				if (dict["data"][question]["author_id"].toLowerCase() == id.toLowerCase() || dict["data"][question]["author"].toLowerCase() == id.toLowerCase()) {
-					user_id = dict["data"][question]["author_id"]
-					username = dict["data"][question]["author"]
-					results = true
-					break
-				}
-				else {
-					if (dict["data"][question]["answers"]) {
-						for (answer in dict["data"][question]["answers"]) {
-							if (dict["data"][question]["answers"][answer]["author"].toLowerCase() == id.toLowerCase() || dict["data"][question]["answers"][answer]["author_id"] == id) {
-								user_id = dict["data"][question]["answers"][answer]["author_id"]
-								username = dict["data"][question]["answers"][answer]["author"]
-								results = true
-								break
-							}
-						}
-					}
-				}
-			}
-			if (id.toLowerCase() == "ask!#4583" || id == "969293937091149874") {
-				document.getElementById("question").innerHTML = `<span class="gradient-text">Ask!</span>`
-				document.getElementById("question-date").innerHTML = `Ask! is a bot that allows you to ask questions straight from Discord! 
-				<div class="invite" onclick="location.href = 'invite.html';">
-					<a class="smaller invite-main" style="color: white !important; width: 80% !important">
-						<i class="fa-brands fa-discord"></i>
-						Add to Discord
-						</a>
-				</div>`
-				return
-			}
-			if (results == true) {
-				document.getElementById("question").innerText = username
-				document.getElementById("question-date").innerText = user_id
-			}
-			if (user_id == null) {
-				document.getElementById("question").innerHTML = `<span class="error">That user could not be found!</span>`
-				document.getElementById("question-date").innerText = "This is most likely because they have not asked or answered any questions"
-				return
-			} 
-
-			total_questions = 0
-			for (question in dict["data"]) {
-				if (dict["data"][question]["author_id"] == user_id) {
-					console.log(dict["data"][question]["deleted"])
-					if (dict["data"][question]["deleted"] != "true") {
-						total_questions++
-						message_id = dict["data"][question]["message_id"]
-						date = convertDate(message_id)
-						document.getElementById("answers").innerHTML += `
-							<div class="item">
-								<h1><a href="https://ask.dantenl.com/question?id=${question}" target="_blank" rel="noopener noreferrer">${dict["data"][question]["question"]}</a></h1>
-								<h3>Asked on ${date}</h3>
-							</div>`
-					}
-				}
-			}
-			if (total_questions == 0) {
-				document.getElementById("answers").innerHTML = `<div class="item"><h1>This user has not asked any questions yet. :(</h1></div>`
-			}
-		}
-		// 	if (id in dict["data"]) {
-		// 		if ("deleted" in dict["data"][id]) {
-		// 			if (dict["data"][id]["deleted"] == "true") {
-		// 				document.title = `Question Viewer — Ask!`
-		// 				document.getElementById("question").innerHTML = `<span class="error">This question is deleted</span>`
-		// 				document.getElementById("warning").style.display = "none"
-		// 				document.getElementById("answers").innerHTML = `<div class="item" id="placeholder"><h1>Loading...</h1></div>`
-		// 				document.getElementById("placeholder").style.display = "none"
-		// 				if (dict["data"][id]["deleted_reason"] == "author") {
-		// 					document.getElementById("question-date").innerText = "This question is deleted by the author. Please fill in another ID"
-		// 				} else if (dict["data"][id]["deleted_reason"] == "moderator") {
-		// 					document.getElementById("question-date").innerText = "This question is deleted by a moderator. Please fill in another ID"
-		// 				} else {
-		// 					document.getElementById("question-date").innerText = "This question is deleted, that's all we know :/ Please fill in another ID"
-		// 				}
-		// 			}
-		// 			return
-		// 		}
-		// 		document.getElementById("question").innerText = getQuestion(id)
-		// 		document.title = `${dict["data"][id]["question"]} — Ask!`
-		// 		if ("author" in dict["data"][id]) {
-		// 			document.getElementById("question-date").innerText = `Question asked on ${convertDate(dict["data"][id]["message_id"])} by ${dict["data"][id]["author"]}`
-		// 			document.getElementById("warning").style.display = "none"
-		// 		} else {
-		// 			document.getElementById("question-date").innerText = `Question asked on ${convertDate(dict["data"][id]["message_id"])}`
-		// 			document.getElementById("warning").innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> This is an older question. Not everything is supported.`
-		// 			document.getElementById("warning").style.display = "block"
-		// 		}
-		// 		document.getElementById("answers").innerHTML = `<div class="item" id="placeholder"><h1>Loading...</h1></div>`
-
-		// 		total_questions = 0
-
-		// 		for (var key in dict["data"][id]["answers"]) {
-		// 			total_questions++
-		// 			answ = dict["data"][id]["answers"][key]["answer"]
-		// 			if ("author" in dict["data"][id]["answers"][key]) {
-		// 				if (dict["data"][id]["answers"][key]["best_answer"] == "true") {
-		// 					document.getElementById("answers").innerHTML += `
-		// 					<div class="item best">
-		// 						<h1>${answ}</h1>
-		// 						<h3>Best answer by ${dict["data"][id]["answers"][key]["author"]}</h3>
-		// 					</div>`
-		// 				} else {
-		// 					document.getElementById("answers").innerHTML += `
-		// 					<div class="item">
-		// 						<h1>${answ}</h1>
-		// 						<h3>By ${dict["data"][id]["answers"][key]["author"]}</h3>
-		// 					</div>`
-		// 				}
-		// 			} else {
-		// 				document.getElementById("answers").innerHTML += `
-		// 				<div class="item best">
-		// 					<span class="warning">
-		// 						<i class="fa-solid fa-triangle-exclamation"></i> This is an older answer. Not everything is supported.
-		// 					</span>
-		// 					<h1>${answ}</h1>
-		// 				</div>`
-		// 			}
-		// 			document.getElementById("placeholder").style.display = "none"
-		// 		}
-		// 		if (total_questions == 0) {
-		// 			document.getElementById("answers").innerHTML = `<div class="item"><h1>This question has no answers yet.</h1></div>`
-		// 		}
-		// 	}
-		// 	else {
-		// 		document.title = `Question Viewer — Ask!`
-		// 		document.getElementById("question").innerHTML = `<span class="error">This question does not exist.</span>`
-		// 		document.getElementById("question-date").innerText = "Please fill in a valid ID. This can be found above the question."
-		// 		document.getElementById("warning").style.display = "none"
-		// 		document.getElementById("answers").innerHTML = `<div class="item" id="placeholder"><h1>Loading...</h1></div>`
-		// 		document.getElementById("placeholder").style.display = "none"
-
-		// 	}
-		// }
-
-		function convertDate(snowflake) {
-			let id = parseInt(snowflake);
-
-			let binary = id.toString(2);
-			binary = binary.padStart(64, "0");
-
-			let excerpt = binary.substring(0, 42);
-
-			let decimal = parseInt(excerpt, 2);
-
-			let unix = parseInt(decimal) + 1420070400000;
-
-			const date = new Date(unix);
-
-			const options = {
-				weekday: "long",
-				year: "numeric",
-				month: "long",
-				day: "numeric",
-				hour: "2-digit",
-				minute: "2-digit"
-
-			};
-			const dataFormat = date.toLocaleString("en-US", options);
-
-			return dataFormat
-		}
-
-		function load() {
-			if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-				// Mobile device
-				console.log("It appears that you're on a mobile device! This means that you get the website optimised for those small devices!")
-				document.body.classList.add("mobile")
-			} else {
-				// Not mobile
-				console.log("It appears that you're not on a mobile device! (laptop, computer, etc.) This means that you get the normal website!")
-				document.body.classList.remove("mobile")
-			}
-
-			const queryString = new URLSearchParams(window.location.search);
-			const url_id = queryString.get("id");
-			if (url_id) {
-				loadText(url_id)
-			}
-		}
-
-	</script>
+	}
+}
+</code>
+	</pre>
+		<h3 id="user-data">User data</h3>
+		<p>The things noted above are the things about questions. Ask! also stores the following user data. All of our user data
+			is not private information, or things that should be kept private. Sometimes we don&#39;t even have user data at
+			all.</p>
+		<ul>
+			<li>
+				<p>User ID</p>
+				<p> We store your ID, but only if you have executed a settings command, such as <code>/toggle-dms</code>.</p>
+			</li>
+			<li>
+				<p>User settings</p>
+				<p> We store your settings, but only if you have changed them from their default value.</p>
+			</li>
+			<li>
+				<p>Ban status</p>
+				<p> We store that you are banned. A reason is not included.</p>
+			</li>
+		</ul>
+		<p>An example of how it looks is included below.</p>
+		<pre>
+<code class="lang-json"><span class="hljs-string">"618082876730376202"</span>: {
+	<span class="hljs-string">"dms_enabled"</span>: <span class="hljs-string">"true"</span>,
+	<span class="hljs-string">"banned"</span>: <span class="hljs-string">"false"</span>
+}
+</code>
+		</pre>
+		<p><strong>Note:</strong> All of this data is kept upon deletion, and if a moderator knows the ID, the entire question
+			history can be viewed.</p>
 </body>
-
 </html>
